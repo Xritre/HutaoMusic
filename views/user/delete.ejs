@@ -1,0 +1,22 @@
+<%- include ("../partials/header.ejs") %>
+<div class="container">
+    <h1 class="delete-user">All Users</h1>
+    <% if(users.length > 1 ){ %>
+    <% users.forEach(function(users){ %>
+        <% if(users.isAdmin  === false) { %>
+    
+        <div class="user-flex">
+        <h1><%= users.username %> </h1>
+        <img class="delete-profileImage" src="<%= users.profileImage %> ">
+    </div> 
+    <form id="delete-form" action="/allUser/delete/<%= users._id %>?_method=DELETE" method="post">
+        <button type="submit" class="btn btn-sm btn-outline-secondary">Delete</button>
+    </form>
+    <%}%>
+     <% }) %>
+    <% } else{ %>
+        <h1>There weren't any user</h1>
+    <% } %>
+</div>              
+
+<%- include ("../partials/footer.ejs") %>

@@ -1,0 +1,18 @@
+<%- include ("../partials/header.ejs") %>
+<div class="container">
+    <form action="/artists/<%= artist._id %>?_method=PUT" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label  class="form-label">Artist Name</label>
+            <input type="text" class="form-control" name="artist[name]" placeholder="<%=artist.name %>", value="<%=artist.name %>">
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">Select Artist Cover</label>
+            <img src="<%= artist.coverImage %>">
+            <input type="file" class="form-control" name="coverImage" accept="image/*", value="<%=artist.coverImage %>" >
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/artists">Go back</a>
+        </div> 
+    </form>
+</div> 
+<%- include ("../partials/footer.ejs") %>

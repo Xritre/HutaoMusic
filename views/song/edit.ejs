@@ -1,0 +1,39 @@
+<%- include ("../partials/header.ejs") %>
+<div class="container">
+<h1>Edit Song</h1>
+<form action="/songs/<%= song._id %>?_method=PUT" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label  class="form-label">Song Name</label>
+            <input type="text" class="form-control" name="song[name]" placeholder="<%= song.name %>", value = "<%= song.name %>" >
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">Cover Image</label>
+            <img src="<%= song.coverImage %>" height="300px">
+            <input type="file" class="form-control" name="coverImage" accept="image/*" >
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">Song file</label>
+            <audio src="<%= song.songFile %>" controls></audio>
+            <input type="file" class="form-control" name="songFile" accept="audio/*" >
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">Lyric</label>
+            <textarea rows="15" class="form-control" cols="50" name="lyric" placeholder="<%=song.lyric %>", value="<%= song.lyric %>"></textarea>
+        </div>
+        <div class="mb-3">
+            <% if(artists.length > 0){ %>
+            
+            <label  class="form-label">Select Artist </label>
+            <select id="artists" name="artist" size="<% artists.length %>">
+            <% artists.forEach(function(artist){ %>
+                    <option value="<%= artist._id %>"><%= artist.name %></option>
+            <% }) %>
+            </select>
+        <% }else { %>
+            <label>There weren't any artist in database</label>
+        <% } %>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/songs">Go back</a>
+    </form>
+</div> 
+<%- include ("../partials/footer.ejs") %>

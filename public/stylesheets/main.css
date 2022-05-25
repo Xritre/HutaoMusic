@@ -1,0 +1,140 @@
+body{
+    background: rgba(246, 227, 210);
+}
+
+:root{
+    --main-radius:5px;
+    --main-padding:5px;
+  }
+  
+  .container-index-grid{
+    display:grid;
+    height:100vh;
+    grid-template-rows:  2fr 1.5fr 1.2fr 1fr;
+    grid-template-areas:
+      
+      "topFav"
+      "artist"
+      "randomSong"
+      "footer";
+      row-gap: 1rem;
+     
+      grid-gap:0.5rem;
+    font-weight:800px;
+  }
+  
+.bg-all{
+  background-color: rgba(246, 227, 210);
+}
+.bg-white{
+  background-color: rgb(255, 255, 255);
+}
+ 
+.index-image-topfav{
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+}
+
+.delete-user{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.song-index-image{
+    height: 100px;
+    width: 100px;
+    
+}
+
+.artists-index-image{
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+}
+
+.artists-song-image{
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+}
+
+.topFav-show-image{
+    height: 200px;
+    width: 100px;
+    object-fit: contain;
+}
+
+.song-center-image{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.song-show-image{
+    width: 200px;
+    height: 100px;
+    margin-top: 30px;
+    
+    object-fit: scale-down;
+}
+.audio-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.lyric{
+     background-color: rgb(231, 216, 204);
+     width: 100%;
+     padding: 50px;
+     text-align: center;
+     margin-top: 30;
+}
+.grid-by{
+    display: flex;
+    flex-direction: row;
+    height: 10px;
+    width: 300px;
+    margin-top:50px  ;
+    margin-left:50px ;
+    justify-content: space-between;
+}
+.userProfile__container{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+
+.userProfile .profileImage{
+    margin: 30px;
+    width: 100px;
+    height: 100px;
+    border-radius: 40%;
+    object-fit: scale-down;
+}
+
+.userProfile .user h4{
+   
+    font-size: 5vh;
+}
+
+.favorite__container{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+
+
+.Favorite .icon{
+    height: 30px;
+    width: 30px;
+    
+}
+
+img.delete-profileImage {
+    width: 30px;
+    height: 30px;
+}

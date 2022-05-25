@@ -1,0 +1,27 @@
+<%- include ("../partials/header.ejs") %>
+<div class="container">
+    <div class="song-show">
+        <img class="song-show-image song-center-image" src="<%= song.coverImage %>">
+        <div align="center">
+            <h4><%= song.name %></h4>
+        <a href="../artists/<%=song.artist.id %>"> <%= song.artist.name %></a>
+        </div>
+        
+        <div align="center"><audio class="audio-container"  src="<%= song.songFile %>" controls></audio></div>
+        
+    </div>
+    <div class="lyric">
+            <h4>Lyric</h4>
+            <p><%= song.lyric %></p> 
+    </div>
+    
+    <% if(currentUser && currentUser.isAdmin ){ %>
+    <a href="/songs/<%= song._id %>/edit" class="btn btn-sm btn-outline-secondary">Edit</a>
+    <form id="delete-form" action="/songs/<%= song._id %>?_method=DELETE" method="post">
+        <button type="submit" class="btn btn-sm btn-outline-secondary">Delete</button>
+    </form>
+
+    <% } %>
+</div>              
+
+<%- include ("../partials/footer.ejs") %>

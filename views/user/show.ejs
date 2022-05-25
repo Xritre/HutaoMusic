@@ -1,0 +1,17 @@
+<%- include ("../partials/header.ejs") %>  
+    
+
+    <div class="userProfile">
+       <div class="userProfile__container">
+           <img class="profileImage" src="<%= user.profileImage %>">
+            <div class="user">
+                <h4>Display Name : <%= user.displayName %></h4>
+                <p>First Name : <%= user.firstName %></p>
+                <p>Last Name : <%= user.lastName %></p>
+            </div> 
+        </div>     
+    </div>   
+
+    
+    
+<%- include ("../partials/footer.ejs") %>

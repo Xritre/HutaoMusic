@@ -1,0 +1,76 @@
+<%- include ("partials/header.ejs") %>
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="bg-white">Songs</h1>
+
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <% if(songs.length>0){ %>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <% songs.forEach(function(songs){ %>
+          <div class="col">
+            <div class="card shadow-sm">
+                <img src="<%= songs.coverImage %>"  class="song-index-image">
+              <div class="card-body">
+                <p class="card-text">Title: <%= songs.name %></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="/songs/<%= songs._id %>" class="btn btn-sm btn-outline-secondary">View</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
+          <% }); %> 
+        </div>
+        <% }else{ %>
+          <h1 align="center">No Song found</h1>
+        <% } %>
+      </div>
+     </div>
+
+     <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="bg-white">Artists</h1>
+            
+            </p>
+          </div>
+        </div>
+      </section>
+    
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <% if(artists.length>0){ %>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <% artists.forEach(function(artists){ %>
+            <div class="col">
+              <div class="card shadow-sm">
+                  <img src="<%= artists.coverImage %>"  class="artists-index-image">
+                <div class="card-body">
+                  <p class="card-text"> <%= artists.name %></p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="/artists/<%= artists._id %>" class="btn btn-sm btn-outline-secondary">View</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+           <% }); %>
+            </div>
+            <% }else{ %>
+              <h1 align="center">No Artist found</h1>
+              <% } %>
+          </div>
+         </div>
+
+
+<%- include ("partials/footer.ejs") %>

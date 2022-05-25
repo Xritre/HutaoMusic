@@ -1,0 +1,38 @@
+<%- include ("../partials/header.ejs") %>
+<div class="container">
+    
+    <form action="/songs" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label  class="form-label">Song Name</label>
+            <input type="text" class="form-control" name="song[name]" placeholder="Song name">
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">Select Song Cover</label>
+            <input type="file" class="form-control" name="coverImage" accept="image/*" >
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">Select Song file</label>
+            <input type="file" class="form-control" name="songFile" accept="audio/*" >
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">Lyric</label>
+            <textarea rows="15" class="form-control" cols="50" name="lyric" placeholder="Put lyric here"></textarea>
+        </div>
+        <div class="mb-3">
+            <% if(artists.length > 0){ %>
+            <label  class="form-label">Select Artist </label>
+            <select id="artist" name="artist" size="<% artists.length %>">
+            <% artists.forEach(function(artist){ %>
+                    <option value="<%= artist._id %>"><%= artist.name %></option>
+            <% }) %>
+            </select>
+        <% }else { %>
+            <label>There weren't any artist in database</label>
+        <% } %>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/songs">Go back</a>
+        </div> 
+    </form>
+</div> 
+<%- include ("../partials/footer.ejs") %>
